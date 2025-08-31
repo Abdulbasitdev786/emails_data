@@ -1,0 +1,402 @@
+[
+  {
+    "email_id": "1",
+    "subject": "Weekly Newsletter - Top Updates",
+    "from": "noreply35@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-02",
+    "body": "Top 10 articles in tech for January."
+  },
+  {
+    "email_id": "2",
+    "subject": "Re: Coffee tomorrow?",
+    "from": "noreply7@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-03",
+    "body": "Hope you're doing well, let's catch up soon."
+  },
+  {
+    "email_id": "3",
+    "subject": "Calendar Invite: Appointment on 2025-01-04",
+    "from": "noreply52@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-04",
+    "body": "Doctor appointment scheduled for 2025-01-04 at 3:00 PM."
+  },
+  {
+    "email_id": "4",
+    "subject": "Catch up soon",
+    "from": "noreply65@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-05",
+    "body": "Hope you're doing well, let's catch up soon."
+  },
+  {
+    "email_id": "5",
+    "subject": "Payment Reminder - Invoice #5",
+    "from": "noreply9@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-06",
+    "body": "Payment reminder: invoice #5 of $496.57 is due on 2025-01-06."
+  },
+  {
+    "email_id": "6",
+    "subject": "Invoice #6 for your purchase",
+    "from": "noreply3@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-07",
+    "body": "Hello, please find attached invoice #6. Total: $396.74. Due: 2025-01-07."
+  },
+  {
+    "email_id": "7",
+    "subject": "Your monthly subscription invoice #7",
+    "from": "noreply77@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-08",
+    "body": "Hello, please find attached invoice #7. Total: $59.67. Due: 2025-01-08."
+  },
+  {
+    "email_id": "8",
+    "subject": "Latest Tech News - January Edition",
+    "from": "noreply86@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-09",
+    "body": "Top 10 articles in tech for January."
+  },
+  {
+    "email_id": "9",
+    "subject": "Event Reminder: Workshop on 2025-01-10",
+    "from": "noreply23@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-10",
+    "body": "Doctor appointment scheduled for 2025-01-10 at 3:00 PM."
+  },
+  {
+    "email_id": "10",
+    "subject": "Re: Coffee tomorrow?",
+    "from": "noreply48@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-11",
+    "body": "Let's grab coffee on 2025-01-11."
+  },
+  {
+    "email_id": "11",
+    "subject": "Invoice #11 for your purchase",
+    "from": "noreply12@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-12",
+    "body": "Your subscription invoice #11 is ready. Total: $22.94. Paid via Visa ending 4242."
+  },
+  {
+    "email_id": "12",
+    "subject": "Payment Reminder - Invoice #12",
+    "from": "noreply99@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-13",
+    "body": "Your subscription invoice #12 is ready. Total: $286.57. Paid via Visa ending 4242."
+  },
+  {
+    "email_id": "13",
+    "subject": "Invoice #13 for your purchase",
+    "from": "noreply17@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-14",
+    "body": "Hello, please find attached invoice #13. Total: $206.88. Due: 2025-01-14."
+  },
+  {
+    "email_id": "14",
+    "subject": "Your order #14 has shipped",
+    "from": "noreply36@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-15",
+    "body": "Tracking update: order #14 expected delivery 2025-01-15."
+  },
+  {
+    "email_id": "15",
+    "subject": "Payment Reminder - Invoice #15",
+    "from": "noreply75@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-16",
+    "body": "Hello, please find attached invoice #15. Total: $158.0. Due: 2025-01-16."
+  },
+  {
+    "email_id": "16",
+    "subject": "Meeting Invitation: Project Sync",
+    "from": "noreply8@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-17",
+    "body": "You are invited to a meeting on 2025-01-17 at 10:00 AM."
+  },
+  {
+    "email_id": "17",
+    "subject": "Event Reminder: Workshop on 2025-01-18",
+    "from": "noreply61@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-18",
+    "body": "Reminder: event on 2025-01-18, please RSVP."
+  },
+  {
+    "email_id": "18",
+    "subject": "Latest Tech News - January Edition",
+    "from": "noreply63@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-19",
+    "body": "Check out the latest updates in AI, cloud, and security for January."
+  },
+  {
+    "email_id": "19",
+    "subject": "Your Monthly Newsletter - January",
+    "from": "noreply58@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-20",
+    "body": "This week's tips include 5 ways to automate your workflow."
+  },
+  {
+    "email_id": "20",
+    "subject": "Tracking update for order #20",
+    "from": "noreply65@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-21",
+    "body": "Your order #20 was delivered successfully on 2025-01-21."
+  },
+  {
+    "email_id": "21",
+    "subject": "Your Monthly Newsletter - January",
+    "from": "noreply57@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-22",
+    "body": "This week's tips include 5 ways to automate your workflow."
+  },
+  {
+    "email_id": "22",
+    "subject": "Quick note",
+    "from": "noreply53@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-23",
+    "body": "Hey, just checking in. How's everything going?"
+  },
+  {
+    "email_id": "23",
+    "subject": "Your Monthly Newsletter - January",
+    "from": "noreply19@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-24",
+    "body": "This week's tips include 5 ways to automate your workflow."
+  },
+  {
+    "email_id": "24",
+    "subject": "Event Reminder: Workshop on 2025-01-25",
+    "from": "noreply54@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-25",
+    "body": "Doctor appointment scheduled for 2025-01-25 at 3:00 PM."
+  },
+  {
+    "email_id": "25",
+    "subject": "Event Reminder: Workshop on 2025-01-26",
+    "from": "noreply9@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-26",
+    "body": "Reminder: event on 2025-01-26, please RSVP."
+  },
+  {
+    "email_id": "26",
+    "subject": "Your Monthly Newsletter - January",
+    "from": "noreply21@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-27",
+    "body": "Top 10 articles in tech for January."
+  },
+  {
+    "email_id": "27",
+    "subject": "Order #27 delivered",
+    "from": "noreply86@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-28",
+    "body": "Your order #27 has shipped via UPS. Tracking ID: 1Z909895."
+  },
+  {
+    "email_id": "28",
+    "subject": "Weekly Newsletter - Top Updates",
+    "from": "noreply24@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-29",
+    "body": "Top 10 articles in tech for January."
+  },
+  {
+    "email_id": "29",
+    "subject": "Catch up soon",
+    "from": "noreply64@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-30",
+    "body": "Hope you're doing well, let's catch up soon."
+  },
+  {
+    "email_id": "30",
+    "subject": "Weekly Newsletter - Top Updates",
+    "from": "noreply2@example.com",
+    "to": "user@demo.com",
+    "date": "2025-01-31",
+    "body": "Top 10 articles in tech for January."
+  },
+  {
+    "email_id": "31",
+    "subject": "Payment Reminder - Invoice #31",
+    "from": "noreply30@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-01",
+    "body": "Hello, please find attached invoice #31. Total: $397.98. Due: 2025-02-01."
+  },
+  {
+    "email_id": "32",
+    "subject": "Quick note",
+    "from": "noreply8@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-02",
+    "body": "Hope you're doing well, let's catch up soon."
+  },
+  {
+    "email_id": "33",
+    "subject": "Tracking update for order #33",
+    "from": "noreply56@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-03",
+    "body": "Your order #33 was delivered successfully on 2025-02-03."
+  },
+  {
+    "email_id": "34",
+    "subject": "Tracking update for order #34",
+    "from": "noreply12@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-04",
+    "body": "Your order #34 has shipped via UPS. Tracking ID: 1Z299489."
+  },
+  {
+    "email_id": "35",
+    "subject": "Latest Tech News - February Edition",
+    "from": "noreply48@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-05",
+    "body": "Top 10 articles in tech for February."
+  },
+  {
+    "email_id": "36",
+    "subject": "Your monthly subscription invoice #36",
+    "from": "noreply70@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-06",
+    "body": "Hello, please find attached invoice #36. Total: $223.98. Due: 2025-02-06."
+  },
+  {
+    "email_id": "37",
+    "subject": "Latest Tech News - February Edition",
+    "from": "noreply8@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-07",
+    "body": "This week's tips include 5 ways to automate your workflow."
+  },
+  {
+    "email_id": "38",
+    "subject": "Tracking update for order #38",
+    "from": "noreply57@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-08",
+    "body": "Your order #38 was delivered successfully on 2025-02-08."
+  },
+  {
+    "email_id": "39",
+    "subject": "Meeting Invitation: Project Sync",
+    "from": "noreply31@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-09",
+    "body": "You are invited to a meeting on 2025-02-09 at 10:00 AM."
+  },
+  {
+    "email_id": "40",
+    "subject": "Catch up soon",
+    "from": "noreply12@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-10",
+    "body": "Hope you're doing well, let's catch up soon."
+  },
+  {
+    "email_id": "41",
+    "subject": "Meeting Invitation: Project Sync",
+    "from": "noreply55@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-11",
+    "body": "You are invited to a meeting on 2025-02-11 at 10:00 AM."
+  },
+  {
+    "email_id": "42",
+    "subject": "Latest Tech News - February Edition",
+    "from": "noreply41@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-12",
+    "body": "Check out the latest updates in AI, cloud, and security for February."
+  },
+  {
+    "email_id": "43",
+    "subject": "Latest Tech News - February Edition",
+    "from": "noreply46@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-13",
+    "body": "Top 10 articles in tech for February."
+  },
+  {
+    "email_id": "44",
+    "subject": "Catch up soon",
+    "from": "noreply77@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-14",
+    "body": "Hope you're doing well, let's catch up soon."
+  },
+  {
+    "email_id": "45",
+    "subject": "Latest Tech News - February Edition",
+    "from": "noreply55@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-15",
+    "body": "This week's tips include 5 ways to automate your workflow."
+  },
+  {
+    "email_id": "46",
+    "subject": "Payment Reminder - Invoice #46",
+    "from": "noreply73@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-16",
+    "body": "Hello, please find attached invoice #46. Total: $312.68. Due: 2025-02-16."
+  },
+  {
+    "email_id": "47",
+    "subject": "Order #47 delivered",
+    "from": "noreply73@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-17",
+    "body": "Your order #47 has shipped via UPS. Tracking ID: 1Z145617."
+  },
+  {
+    "email_id": "48",
+    "subject": "Calendar Invite: Appointment on 2025-02-18",
+    "from": "noreply29@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-18",
+    "body": "You are invited to a meeting on 2025-02-18 at 10:00 AM."
+  },
+  {
+    "email_id": "49",
+    "subject": "Tracking update for order #49",
+    "from": "noreply80@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-19",
+    "body": "Your order #49 has shipped via UPS. Tracking ID: 1Z653475."
+  },
+  {
+    "email_id": "50",
+    "subject": "Payment Reminder - Invoice #50",
+    "from": "noreply5@example.com",
+    "to": "user@demo.com",
+    "date": "2025-02-20",
+    "body": "Hello, please find attached invoice #50. Total: $419.54. Due: 2025-02-20."
+  }
+]
