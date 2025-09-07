@@ -38,9 +38,9 @@ Files in this repo (what to open first):
 
 index.py — main pipeline (Groq-compatible variant included)
 
-emails.json — demo dataset (human-like, redacted; contains “Abdul Basit” in greetings)
+emails — demo dataset (human-like, redacted; contains “Abdul Basit” in greetings)
 
-emails.jsonl — newline-delimited version for streaming/processing
+predictions.jsonl — newline-delimited version for streaming/processing
 
 prompts.md — all prompt templates used for classification/extraction/verification
 
@@ -48,7 +48,7 @@ report.md — short summary of results, failure cases, and fixes
 
 Quick start (run locally):
 
-Install dependencies: pip install groq python-dotenv
+Install dependencies: pip install groq python-dotenv beautiful-bs4
 
 Create .env with your Groq key:
 

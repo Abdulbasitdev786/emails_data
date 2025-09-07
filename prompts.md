@@ -1,24 +1,20 @@
-# Agentic AI — Email Pipeline Prompts
+# Agentic AI — Email Pipeline
 
 ## 1 CLASSIFICATION PROMPT — `classification_v1`
 
 **system**
-You are a careful data extraction agent. You classify emails. Return only JSON that follows the schema exactly. If unsure, pick `"other"` with low confidence.
+You are a precise email template classifier for Assignment 1. Classify emails into one of the specified templates based on merchant data. Return only JSON that follows the schema exactly. If unsure or no match, pick `"other"` with low confidence. Ignore decoy sections labeled Draft/Preview/Proforma/Projected/Forecast.
 
 **user**
-Classify the email into exactly one category and produce calibrated confidence.
+Classify the email into exactly one template and produce calibrated confidence.
 
 Content:
-
-```
 Subject: {{subject}}
 Body:
 {{body}}
-```
-
-Schema **return exactly this** :
+textSchema **return exactly this** :
 {
-"category": "one of: invoice/bill | shipping/order | calendar_invite | newsletter | other",
+"template": "one of: stripe_udemyx_receipt | google_play_subscription | shophive_order_confirmation | meta_instagram_receipt | other",
 "confidence": 0.0-1.0,
 "short_reason": "string, one sentence"
 }
@@ -27,138 +23,130 @@ Only JSON.
 
 ---
 
-## 2 EXTRACTION PROMPTS — per category Structured
+## 2 EXTRACTION PROMPTS — per template Structured
 
-All category extractors share these rules:
+All template extractors share these rules:
 
 - Return only JSON.
-- Omit fields you truly cannot find **only** if they are marked optional; otherwise infer conservatively or set `null` and explain in `notes`.
-- Normalize dates to ISO 8601 `YYYY-MM-DD` or `YYYY-MM-DDTHH:MM:SS±HH:MM` if time is present .
-- Currency values as numbers e.g., 123.45 without symbols; add `"currency"` separately if known.
-- Strip PII if present inside text fields emails, phones, credit-card-like numbers and replace with `"[REDACTED]"`.
+- Keep dates and strings verbatim as rendered in the email (including punctuation and case).
+- Numbers must be extracted as numbers (e.g., 123.45), not strings.
+- Arrays must be present even if single-item (e.g., line_items, items, campaigns).
+- Ignore decoy sections labeled Draft/Preview/Proforma/Projected/Forecast.
+- Use real values from canonical rows like Amount paid / Total / Grand Total / Amount billed.
+- Normalize HTML content (remove zero-width spaces and unwrap wrapped digits) before parsing.
 
-### 2.1 `extract_invoice_v1`
+### 2.1 `extract_stripe_udemyx_receipt`
 
 **system**
-You extract invoice/bill fields from email text. Output only JSON.
+You extract fields for UdemyX receipts from email text for Assignment 1. Output only JSON.
 
 **user**
-Extract according to this schema.
+Extract according to this schema using the email content.
 
 Content:
-
-```
 Subject: {{subject}}
 Body:
 {{body}}
-```
-
-Schema:
+textSchema:
 {
-"vendor": "string",
-"invoice_id": "string|null",
-"invoice_date": "YYYY-MM-DD|null",
-"due_date": "YYYY-MM-DD|null",
-"total": "number|null",
-"currency": "ISO 4217 code or null",
+"merchant": "UdemyX",
+"receipt_number": "####-####",
+"amount_paid_usd": 0.00,
+"date_paid": "Mon DD, YYYY",
+"payment_last4": "####",
 "line_items": [
-{
-"description": "string",
-"qty": "number|null",
-"unit_price": "number|null",
-"amount": "number|null"
-}
-],
-"payment_method": "string|null",
-"notes": "string|null"
+{ "description": "string", "period": "YYYY-MM-DD—YYYY-MM-DD", "amount_usd": 0.00 }
+]
 }
 
 Only JSON.
 
-### 2.2 `extract_shipping_v1`
+### 2.2 `extract_google_play_subscription`
 
 **system**
-You extract order/shipping fields. Output only JSON.
+You extract fields for Google Play subscriptions from email text for Assignment 1. Output only JSON.
 
 **user**
-Content:
+Extract according to this schema using the email content.
 
-```
+Content:
 Subject: {{subject}}
 Body:
 {{body}}
-```
-
-Schema:
+textSchema:
 {
-"vendor": "string|null",
-"order_id": "string|null",
-"ship_date": "YYYY-MM-DD|null",
-"carrier": "string|null",
-"tracking_number": "string|null",
-"delivery_estimate": "YYYY-MM-DD|null",
+"merchant": "Google Play",
+"order_number": "SOP.xxxx-xxxx-xxxx-xxxxx",
+"order_date": "Mon DD, YYYY HH:MM:SS AM/PM GMT+5",
+"account_email": "name@domain",
+"item": "string",
+"price_monthly_rs": 0.00,
+"price_yearly_rs": 0.00,
+"payment_method": "Brand-####",
+"auto_renew": true,
+"tax_rs": 0.00,
+"total_rs": 0.00
+}
+
+Only JSON.
+
+### 2.3 `extract_shophive_order_confirmation`
+
+**system**
+You extract fields for Shophive order confirmations from email text for Assignment 1. Output only JSON.
+
+**user**
+Extract according to this schema using the email content.
+
+Content:
+Subject: {{subject}}
+Body:
+{{body}}
+textSchema:
+{
+"merchant": "Shophive",
+"order_id": "string",
+"placed_at": "Mon DD, YYYY, HH:MM:SS AM/PM",
+"customer_name": "string",
+"billing_address": "line1; city, postcode; Pakistan",
+"shipping_address": "line1; city, postcode; Pakistan",
+"phone": "03XXXXXXXXX",
+"payment_method": "Cash On Delivery",
+"cod_fee_rs": 0.00,
 "items": [
-{"name": "string", "qty": "number|null"}
+{ "name": "string", "sku": "string", "qty": 0, "unit_price_rs": 0.00, "line_total_rs": 0.00 }
 ],
-"destination_city": "string|null",
-"destination_country": "string|null",
-"notes": "string|null"
+"shipping_rs": 0.00,
+"subtotal_rs": 0.00,
+"grand_total_rs": 0.00
 }
 
 Only JSON.
 
-### 2.3 `extract_calendar_v1`
+### 2.4 `extract_meta_instagram_receipt`
 
 **system**
-You extract calendar invite fields. Output only JSON.
+You extract fields for Meta Instagram receipts from email text for Assignment 1. Output only JSON.
 
 **user**
-Content:
+Extract according to this schema using the email content.
 
-```
+Content:
 Subject: {{subject}}
 Body:
 {{body}}
-```
-
-Schema:
+textSchema:
 {
-"title": "string",
-"start_time": "ISO 8601 datetime or null",
-"end_time": "ISO 8601 datetime or null",
-"timezone": "IANA tz or null",
-"organizer": "string|null",
-"attendees_count": "number|null",
-"location": "string|null",
-"meeting_link": "string|null",
-"notes": "string|null"
-}
-
-Only JSON.
-
-### 2.4 `extract_newsletter_v1`
-
-**system**
-You extract newsletter metadata. Output only JSON.
-
-**user**
-Content:
-
-```
-Subject: {{subject}}
-Body:
-{{body}}
-```
-
-Schema:
-{
-"publisher": "string|null",
-"issue_date": "YYYY-MM-DD|null",
-"issue_id": "string|null",
-"headline": "string|null",
-"topics": ["string"],
-"unsubscribe_link_present": "boolean",
-"notes": "string|null"
+"merchant": "Meta Ads",
+"amount_billed_pkr": 0.00,
+"date_range": "D Mon YYYY, HH:MM - D Mon YYYY, HH:MM",
+"product_type": "Meta ads",
+"payment_method": "Brand · ####",
+"reference": "XXXXXXXXXX",
+"campaigns": [
+{ "title": "string", "amount_pkr": 0.00, "result": "Results: N,NNN Impressions" }
+],
+"total_pkr": 0.00
 }
 
 Only JSON.
@@ -166,18 +154,14 @@ Only JSON.
 ### 2.5 `extract_other_v1`
 
 **system**
-When no category matches, extract minimal generic info. Output only JSON.
+When no template matches, extract minimal generic info. Output only JSON.
 
 **user**
 Content:
-
-```
 Subject: {{subject}}
 Body:
 {{body}}
-```
-
-Schema:
+textSchema:
 {
 "summary": "string",
 "action_items": ["string"],
@@ -191,34 +175,49 @@ Only JSON.
 ## 3 VERIFICATION PROMPT — `verify_and_fix_v1`
 
 **system**
-You are a strict JSON schema verifier and fixer. You will check a candidate JSON object against the target schema and return a corrected JSON object. Return only JSON.
+You are a strict JSON schema verifier and fixer for Assignment 1. Check a candidate JSON object against the target schema for the given template and return a corrected JSON object. Return only JSON.
 
 **user**
 Given:
 
-- Category: {{category}}
+- Template: {{template}}
 - Target schema - comments show types :
   {{schema_pretty}}
 
 Candidate:
-
-```
 {{candidate_json}}
-```
+textSteps:
 
-Steps:
-
-1. Validate types, required fields, and formats dates ISO 8601; numbers not strings .
-2. If violations exist, **produce a corrected object** that best fits the email text below; use `null` when unknown. Do not invent precise numbers or IDs; keep uncertain values null.
-3. Ensure PII emails, phones, card numbers is redacted as `[REDACTED]`.
-4. Return only the **final corrected JSON**.
+1. Validate types (numbers as numbers, booleans as booleans, strings verbatim), required fields, and formats (dates as specified in the schema).
+2. If violations exist, produce a corrected object that best fits the email text below; use default values (e.g., 0.00, "####") when unknown. Do not invent precise numbers or IDs; keep uncertain values as defaults.
+3. Ensure dates and strings remain verbatim as in the email (including punctuation and case).
+4. Arrays must be present even if single-item.
+5. Return only the final corrected JSON.
 
 Original Email for context :
-
-```
 Subject: {{subject}}
 Body:
 {{body}}
-```
+textOnly JSON.
+Integration with Code
+To use this prompts.md file in your code (e.g., the extractor.py script from earlier responses), follow these steps:
 
-Only JSON.
+Hardcode Prompts in Code:
+
+Copy the text from the above prompts.md into the corresponding variables (CLASSIFY_PROMPT, EXTRACTION_PROMPTS, VERIFY_PROMPT) in your Python script. For example:
+pythonCLASSIFY_PROMPT = """You are a precise email template classifier for Assignment 1. Classify emails into one of the specified templates based on merchant data. Return only JSON that follows the schema exactly. If unsure or no match, pick `"other"` with low confidence. Ignore decoy sections labeled Draft/Preview/Proforma/Projected/Forecast.
+
+Classify the email into exactly one template and produce calibrated confidence.
+
+Content:
+Subject: {{subject}}
+Body:
+{{body}}
+textSchema **return exactly this** :
+{
+"template": "one of: stripe_udemyx_receipt | google_play_subscription | shophive_order_confirmation | meta_instagram_receipt | other",
+"confidence": 0.0-1.0,
+"short_reason": "string, one sentence"
+}
+
+Only JSON."""
